@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TransportAR</string>
+    <string name="textUser">Usuario:</string>
+    <string name="textName">Nombre</string>
+    <string name="textPassword">Contraseña:</string>
+    <string name="password">Contraseña</string>
+    <string name="buttonLoginText">Ingresar</string>
+    <string name="hello_blank_fragment">Holis</string>
+</resources>
