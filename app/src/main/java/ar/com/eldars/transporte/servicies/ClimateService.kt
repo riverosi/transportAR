@@ -22,7 +22,8 @@ class ClimateService : IntentService("Climate Service") {
     override fun onHandleIntent(intent: Intent?) {
         val queue = Volley.newRequestQueue(this)
         val city = intent?.getStringExtra("city") ?: "argentina"
-        val url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=485efd13010048af6236c730caf2805b&units=metric"
+        val token = assets.open("token.txt").bufferedReader().use { it.readText()}
+        val url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$token&units=metric"
         Log.d(TAG, "jsonOk")
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,

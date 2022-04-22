@@ -2,7 +2,6 @@ package ar.com.eldars.transporte.activities
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +10,7 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.core.content.edit
 import ar.com.eldars.transporte.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeActivity : AppCompatActivity() {
 
@@ -55,5 +55,12 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, WebActivity::class.java)
             startActivity(intent)
         }
+
+        val buttonFindMe = findViewById<FloatingActionButton>(R.id.floatingActionFindMe)
+        buttonFindMe.setOnClickListener {
+            val intent = Intent(this, FindMeActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
