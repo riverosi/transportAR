@@ -55,7 +55,7 @@ class FindMeActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 // Got last known location. In some rare situations this can be null.
                 it.let {
-                    val text = "Latitude: ${it.latitude}, Longitude: ${it.longitude}"
+                    val text = "Latitude: ${it.latitude}\n Longitude: ${it.longitude}"
                     findViewById<TextView>(R.id.textViewLocation).text = text
                 }
             }

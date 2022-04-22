@@ -56,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val buttonFindMe = findViewById<FloatingActionButton>(R.id.floatingActionFindMe)
+        val buttonFindMe = findViewById<Button>(R.id.buttonLocation)
         buttonFindMe.setOnClickListener {
             val intent = Intent(this, FindMeActivity::class.java)
             startActivity(intent)

@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="textView">#FF000000</color>
+    
+    <color name="mainText">#FF2D313D</color>
+    <color name="textAlt">#FF808F97</color>
+    <color name="mainBackground">#FFFFFFFF</color>
 </resources>

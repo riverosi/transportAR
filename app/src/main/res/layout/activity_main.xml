@@ -7,18 +7,23 @@
     tools:context=".activities.LoginActivity">
 
     <LinearLayout
-        android:layout_width="352dp"
-        android:layout_height="384dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="342dp"
+        android:layout_height="197dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="240dp"
+        android:layout_marginEnd="28dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textUser"
             style="@style/loginTextView"
-            android:text="@string/textUser" />
+            android:text="@string/textUser"
+            android:textColor="@color/mainText"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/editTextName"
@@ -26,12 +31,15 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView"
             style="@style/loginTextView"
-            android:text="@string/textPassword" />
+            android:text="@string/textPassword"
+            android:textColor="@color/mainText"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -39,21 +47,38 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinnerEmpresas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            android:text="@string/buttonLoginText"
-            tools:layout_editor_absoluteY="159dp" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/switch_btn_bg"
+        android:text="@string/buttonLoginText"
+        android:textColor="@color/mainBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="223dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_people_of_color_vector_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

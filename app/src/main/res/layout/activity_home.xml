@@ -6,12 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="72dp"
+        android:text="Welcome!"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
+        android:background="@drawable/switch_btn_bg"
+        android:drawableLeft="@drawable/ic_baseline_wb_sunny_24"
+        android:drawableTint="@color/mainBackground"
         android:text="Weather"
+        android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +40,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:background="@drawable/switch_btn_bg"
+        android:drawableLeft="@drawable/ic_baseline_sticky_note_2_24"
+        android:drawableTint="@color/mainBackground"
         android:text="Notes"
+        android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,23 +55,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Web"
+        android:background="@drawable/switch_btn_bg"
+        android:drawableLeft="@drawable/ic_baseline_support_agent_24"
+        android:drawableTint="@color/mainBackground"
+        android:text="Web Support"
+        android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNotes" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionFindMe"
+    <Button
+        android:id="@+id/buttonLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:clickable="true"
-        app:tint="@color/white"
-        app:backgroundTint="@color/purple_700"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/switch_btn_bg"
+        android:drawableLeft="@drawable/ic_baseline_add_location_24"
+        android:drawableTint="@color/mainBackground"
+        android:text="Location"
+        android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonWeb"
-        app:srcCompat="@drawable/ic_baseline_add_location_24" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonNotes" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

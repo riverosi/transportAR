@@ -1,9 +1,12 @@
 package ar.com.eldars.transporte.activities
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.edit
@@ -60,7 +63,9 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
-
-
     }
+
+    // extension function to hide soft keyboard programmatically
+
 }
+
