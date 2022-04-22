@@ -13,5 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-# assets
-app/src/main/assets/.txt
+/app/src/main/assets/token.txt
