@@ -9,6 +9,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
 import androidx.core.content.edit
+import androidx.navigation.findNavController
 import ar.com.eldars.transporte.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -22,8 +23,9 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_logout){
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            //isn't necessary start the activity again
+            //val intent = Intent(this, LoginActivity::class.java)
+            //startActivity(intent)
             finish()
 
             val preferences = getSharedPreferences("pref_login", Context.MODE_PRIVATE)

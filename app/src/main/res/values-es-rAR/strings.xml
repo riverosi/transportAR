@@ -7,4 +7,5 @@
     <string name="password">Contraseña</string>
     <string name="buttonLoginText">Ingresar</string>
     <string name="hello_blank_fragment">Holis</string>
+    <string name="login_remember_me">Recordar Usuario</string>
 </resources>

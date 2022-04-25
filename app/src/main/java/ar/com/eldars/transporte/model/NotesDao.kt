@@ -4,6 +4,7 @@ import androidx.room.*
 
 @Dao
 interface NotesDao {
+    //language=sql
     @Query("SELECT * FROM Notes")
     fun getAll(): List<NoteModel>
 

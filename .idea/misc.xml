@@ -8,10 +8,12 @@
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/drawable/ic_baseline_create_24.xml" value="0.2203125" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/drawable/switch_btn_bg.xml" value="0.2203125" />
+        <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/drawable/transparent_background.xml" value="0.2203125" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_climate.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_find_me.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_home.xml" value="0.5" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_new_main.xml" value="0.22" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_notes.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/activity_web.xml" value="0.15217391304347827" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/fragment_climate.xml" value="0.33" />
@@ -20,6 +22,7 @@
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/fragment_notes_list.xml" value="0.33" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/layout/item_note.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/menu/home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/menu/nav_bottom_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/menu/web_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Ignacio.riveros/AndroidStudioProjects/transporte/app/src/main/res/menu/webmenu.xml" value="0.20416666666666666" />
       </map>

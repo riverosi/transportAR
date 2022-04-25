@@ -16,7 +16,7 @@ import ar.com.eldars.transporte.R
 class LoginActivity : AppCompatActivity() {
 
     companion object {
-        const val KEY_IS_LOGIN: Boolean = true
+        const val KEY_IS_LOGIN: Boolean = false
     }
 
     val listEmpresas = listOf<String>("Eldar", "Prisma" , "Fiserv")
@@ -46,26 +46,24 @@ class LoginActivity : AppCompatActivity() {
             API.login(user, password)
             { response ->
                 if (response) {
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
                     prefUser.getString("user", "")
                     prefUser.edit {
                         putString("user", user)
                         putString("pass", password)
                     }
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 } else {
                     val alertLogin = AlertDialog.Builder(this)
                         .setTitle("Login Alert")
-                        .setMessage("Usiario Incorrecto")
-                        .setPositiveButton("Aceptar") { _, _ -> }
+                        .setMessage("Invalid User")
+                        .setPositiveButton("Accept") { _, _ -> }
                         .show()
                 }
             }
 
         }
     }
-
-    // extension function to hide soft keyboard programmatically
 
 }
 

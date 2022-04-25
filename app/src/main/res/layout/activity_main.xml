@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="342dp"
-        android:layout_height="197dp"
+        android:layout_width="262dp"
+        android:layout_height="188dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="240dp"
         android:layout_marginEnd="28dp"
@@ -61,24 +61,35 @@
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="76dp"
         android:background="@drawable/switch_btn_bg"
         android:text="@string/buttonLoginText"
         android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="223dp"
-        android:layout_height="212dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="221dp"
+        android:layout_height="217dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/ic_people_of_color_vector_6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Remember me"
+        android:textColor="@color/mainText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
