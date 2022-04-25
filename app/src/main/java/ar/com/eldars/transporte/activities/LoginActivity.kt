@@ -3,6 +3,7 @@ package ar.com.eldars.transporte.activities
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         const val KEY_IS_LOGIN: Boolean = false
     }
 
-    val listEmpresas = listOf<String>("Eldar", "Prisma" , "Fiserv")
+    val listEmpresas = listOf<String>("Eldar", "Prisma", "Fiserv")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,37 +31,88 @@ class LoginActivity : AppCompatActivity() {
         val buttonLogin = findViewById<Button>(R.id.buttonLogin)
         val spinnerEmpresas = findViewById<Spinner>(R.id.spinnerEmpresas)
 
-        val adapter = ArrayAdapter(this,
+        val adapter = ArrayAdapter(
+            this,
             android.R.layout.simple_spinner_dropdown_item,
-            listEmpresas)
+            listEmpresas
+        )
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         spinnerEmpresas.adapter = adapter
 
         val prefUser = getSharedPreferences("pref_login", Context.MODE_PRIVATE)
+
+        if (prefUser?.getString("active", "") == "true") {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            if (prefUser?.getString("remember", "") == "true") {
+                textViewUser.setText(prefUser.getString("user", ""))
+                textViewPassword.setText(prefUser.getString("password", ""))
+            }
+        }
 
         buttonLogin.setOnClickListener {
 
             val user: String = textViewUser.text.toString()
             val password: String = textViewPassword.text.toString()
 
-            API.login(user, password)
-            { response ->
-                if (response) {
-                    prefUser.getString("user", "")
-                    prefUser.edit {
-                        putString("user", user)
-                        putString("pass", password)
+            if (user.isNotEmpty() && password.isNotEmpty()) {
+
+                if (findViewById<CheckBox>(R.id.checkBox).isChecked) {
+                    API.login(user, password) { response ->
+                        if (response) {
+                            prefUser.edit {
+                                putString("user", user)
+                                putString("pass", password)
+                                putString("active", "true")
+                                putString("remember", "true")
+                                apply()
+                            }
+                            val intent = Intent(this, HomeActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            //show invalid user
+                            val alertLogin = AlertDialog.Builder(this)
+                                .setTitle("Login Alert")
+                                .setMessage("Invalid User")
+                                .setPositiveButton("Accept") { _, _ -> }
+                                .show()
+                        }
                     }
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
                 } else {
-                    val alertLogin = AlertDialog.Builder(this)
-                        .setTitle("Login Alert")
-                        .setMessage("Invalid User")
-                        .setPositiveButton("Accept") { _, _ -> }
-                        .show()
+                    API.login(user, password) { response ->
+                        if (response) {
+                            prefUser.edit {
+                                putString("active", "true")
+                                putString("remember", "false")
+                                apply()
+                            }
+                            val intent = Intent(this, HomeActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            //show invalid user
+                            val alertLogin = AlertDialog.Builder(this)
+                                .setTitle("Login Alert")
+                                .setMessage("Invalid User")
+                                .setPositiveButton("Accept") { _, _ -> }
+                                .show()
+                        }
+
+                    }
                 }
+
+
+            } else {
+                val alertLogin = AlertDialog.Builder(this)
+                    .setTitle("Login Alert")
+                    .setMessage("Empty Fields")
+                    .setPositiveButton("Accept") { _, _ -> }
+                    .show()
             }
+
 
         }
     }

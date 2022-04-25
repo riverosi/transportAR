@@ -24,14 +24,14 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_logout){
             //isn't necessary start the activity again
-            //val intent = Intent(this, LoginActivity::class.java)
-            //startActivity(intent)
-            finish()
-
             val preferences = getSharedPreferences("pref_login", Context.MODE_PRIVATE)
             preferences.edit {
-                putBoolean(LoginActivity.KEY_IS_LOGIN.toString(), false)
+                putString("active", "false")
+                apply()
             }
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         return super.onOptionsItemSelected(item)
     }
