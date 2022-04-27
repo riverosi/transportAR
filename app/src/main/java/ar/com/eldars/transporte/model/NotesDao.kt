@@ -7,7 +7,7 @@ interface NotesDao {
     //language=sql
     @Query("SELECT * FROM Notes")
     fun getAll(): List<NoteModel>
-
+    //language=sql
     @Query("SELECT * FROM Notes WHERE nid =:noteId LIMIT 1")
     fun getById(noteId : Int): NoteModel
 

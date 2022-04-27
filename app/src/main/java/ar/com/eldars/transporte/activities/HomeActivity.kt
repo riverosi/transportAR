@@ -24,11 +24,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_logout){
             //isn't necessary start the activity again
-            val preferences = getSharedPreferences("pref_login", Context.MODE_PRIVATE)
-            preferences.edit {
-                putString("active", "false")
-                apply()
-            }
+            closeSession()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -64,5 +60,20 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
+    }
+
+    override fun onBackPressed() {
+        closeSession()
+        super.onBackPressed()
+    }
+
+    private fun closeSession() {
+        val preferences = getSharedPreferences("pref_login", MODE_PRIVATE)
+        preferences.edit {
+            putString("active", "false")
+            apply()
+        }
     }
 }

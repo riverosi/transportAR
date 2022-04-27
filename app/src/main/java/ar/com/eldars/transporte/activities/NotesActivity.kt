@@ -2,6 +2,7 @@ package ar.com.eldars.transporte.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import ar.com.eldars.transporte.R
 
 class NotesActivity : AppCompatActivity() {

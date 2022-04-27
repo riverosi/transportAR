@@ -28,8 +28,10 @@ class NotesListFragment : Fragment() {
         )
 
         val recyclerNote = rootView.findViewById<RecyclerView>(R.id.recycleNote)
-        recyclerNote.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,
-            false)
+        recyclerNote.layoutManager = LinearLayoutManager(
+            activity, LinearLayoutManager.VERTICAL,
+            false
+        )
 
         val adapter = NotesAdapter()
         recyclerNote.adapter = adapter
@@ -39,10 +41,11 @@ class NotesListFragment : Fragment() {
             bundle.putInt("position", position)
             findNavController().navigate(
                 R.id.action_notesListFragment_to_notesDetailsFragment,
-                bundle)
+                bundle
+            )
         }
 
-        NotesProvider.getNoteProvider().getAllNotes().forEach{
+        NotesProvider.getNoteProvider().getAllNotes().forEach {
             Log.d(it.title.toString(), it.description.toString())
         }
 

@@ -15,11 +15,10 @@ import com.google.android.gms.location.LocationServices
 class FindMeActivity : AppCompatActivity() {
 
     companion object {
-        val REQUEST_CODE_LOCATION = 100
+        const val REQUEST_CODE_LOCATION = 100
     }
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +34,6 @@ class FindMeActivity : AppCompatActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             ActivityCompat.requestPermissions(
                 this, arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
@@ -51,8 +43,7 @@ class FindMeActivity : AppCompatActivity() {
             return
         }
 
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener {
+        fusedLocationClient.lastLocation.addOnSuccessListener {
                 // Got last known location. In some rare situations this can be null.
                 it.let {
                     val text = "Latitude: ${it.latitude}\n Longitude: ${it.longitude}"
@@ -76,14 +67,17 @@ class FindMeActivity : AppCompatActivity() {
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(
-                    this, arrayOf(
+                    this,
+                    arrayOf(
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION
-                    ), REQUEST_CODE_LOCATION
+                    ),
+                    REQUEST_CODE_LOCATION
                 )
                 return
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+
 }

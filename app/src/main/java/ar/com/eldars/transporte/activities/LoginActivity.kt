@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
         } else {
             if (prefUser?.getString("remember", "") == "true") {
                 textViewUser.setText(prefUser.getString("user", ""))
-                textViewPassword.setText(prefUser.getString("password", ""))
+                textViewPassword.setText(prefUser.getString("pass", ""))
             }
         }
 
@@ -58,53 +58,11 @@ class LoginActivity : AppCompatActivity() {
             val password: String = textViewPassword.text.toString()
 
             if (user.isNotEmpty() && password.isNotEmpty()) {
-
                 if (findViewById<CheckBox>(R.id.checkBox).isChecked) {
-                    API.login(user, password) { response ->
-                        if (response) {
-                            prefUser.edit {
-                                putString("user", user)
-                                putString("pass", password)
-                                putString("active", "true")
-                                putString("remember", "true")
-                                apply()
-                            }
-                            val intent = Intent(this, HomeActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            //show invalid user
-                            val alertLogin = AlertDialog.Builder(this)
-                                .setTitle("Login Alert")
-                                .setMessage("Invalid User")
-                                .setPositiveButton("Accept") { _, _ -> }
-                                .show()
-                        }
-                    }
+                    loginCheck(user, password, prefUser)
                 } else {
-                    API.login(user, password) { response ->
-                        if (response) {
-                            prefUser.edit {
-                                putString("active", "true")
-                                putString("remember", "false")
-                                apply()
-                            }
-                            val intent = Intent(this, HomeActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            //show invalid user
-                            val alertLogin = AlertDialog.Builder(this)
-                                .setTitle("Login Alert")
-                                .setMessage("Invalid User")
-                                .setPositiveButton("Accept") { _, _ -> }
-                                .show()
-                        }
-
-                    }
+                    loginNoCheck(user, password, prefUser)
                 }
-
-
             } else {
                 val alertLogin = AlertDialog.Builder(this)
                     .setTitle("Login Alert")
@@ -112,8 +70,69 @@ class LoginActivity : AppCompatActivity() {
                     .setPositiveButton("Accept") { _, _ -> }
                     .show()
             }
+        }
+    }
 
+    private fun loginNoCheck(
+        user: String,
+        password: String,
+        prefUser: SharedPreferences
+    ) {
+        API.login(user, password) { response ->
+            if (response) {
+                prefUser.edit {
+                    putString("active", "true")
+                    putString("remember", "false")
+                    apply()
+                }
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                prefUser.edit {
+                    putString("active", "false")
+                    apply()
+                }
+                //show invalid user
+                val alertLogin = AlertDialog.Builder(this)
+                    .setTitle("Login Alert")
+                    .setMessage("Invalid User")
+                    .setPositiveButton("Accept") { _, _ -> }
+                    .show()
+            }
 
+        }
+    }
+
+    private fun loginCheck(
+        user: String,
+        password: String,
+        prefUser: SharedPreferences
+    ) {
+        API.login(user, password) { response ->
+            if (response) {
+                prefUser.edit {
+                    putString("user", user)
+                    putString("pass", password)
+                    putString("active", "true")
+                    putString("remember", "true")
+                    apply()
+                }
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                prefUser.edit {
+                    putString("active", "false")
+                    apply()
+                }
+                //show invalid user
+                val alertLogin = AlertDialog.Builder(this)
+                    .setTitle("Login Alert")
+                    .setMessage("Invalid User")
+                    .setPositiveButton("Accept") { _, _ -> }
+                    .show()
+            }
         }
     }
 
