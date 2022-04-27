@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat.getSystemService
 import ar.com.eldars.transporte.servicies.ClimateService
@@ -21,11 +22,14 @@ import ar.com.eldars.transporte.R
 
 class ClimateFragment : Fragment() {
 
+    private lateinit var progressBar: ProgressBar
     var textTemperature : TextView? = null
-    val receiver = object : BroadcastReceiver() {
+    private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
+            progressBar.visibility = View.INVISIBLE
             val temperature = intent?.extras?.getDouble(ClimateService.EXTRA_TEMPERATURE, -1.0)
             textTemperature?.text = "$temperature °C"
+
         }
     }
 
@@ -36,6 +40,7 @@ class ClimateFragment : Fragment() {
     }
 
     override fun onPause() {
+        activity?.unregisterReceiver(receiver)
         super.onPause()
     }
 
@@ -45,12 +50,16 @@ class ClimateFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val viewRoot = inflater.inflate(R.layout.fragment_climate, container, false)
+        progressBar = viewRoot.findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.visibility = View.INVISIBLE
         textTemperature = viewRoot.findViewById(R.id.textViewTemperature)
         val editCity = viewRoot.findViewById<EditText>(R.id.editTextCity)
         val buttonCity = viewRoot.findViewById<Button>(R.id.buttonCity)
 
         buttonCity.setOnClickListener {
             activity?.hideKeyboard()
+            textTemperature?.text = ""
+            progressBar.visibility = View.VISIBLE
             val selectedCity = editCity.text.toString()
             val intent = Intent(activity, ClimateService::class.java)
             intent.putExtra("city", selectedCity)

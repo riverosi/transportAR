@@ -35,12 +35,23 @@
         android:id="@+id/buttonCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainBackground"
-        android:background="@drawable/switch_btn_bg"
         android:layout_marginTop="70dp"
+        android:background="@drawable/switch_btn_bg"
         android:text="Get Temperature"
+        android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCity" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCity" />
 </androidx.constraintlayout.widget.ConstraintLayout>
